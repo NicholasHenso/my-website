@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1>Tcg's Awesome Webpage</h1>
+    <style>
+        :root {
+            --main-bg: black;
+            --main-color: rgb(255, 0, 0);
+            --button-bg: rgba(255,255,255,0.1);
+            --button-color: #fff;
+        }
+        body {
+            background-color: var(--main-bg);
+            background-image: url('1lu31x1angtb1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        h1 {
+            color: var(--main-color);
+        }
+        .mode-switch {
+            margin-bottom: 15px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            background: var(--button-bg);
+            color: var(--button-color);
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .mode-switch:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .subtitle {
+            color: #ccc;
+            font-size: 1.2em;
+            font-weight: normal;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px #000;
+        }
+    </style>
+</head>
+<body>
+    <button class="mode-switch" id="modeSwitch">Switch to Light Mode</button>
+    <button class="mode-switch" id="superDarkMode">Dark Mode</button>
+    <button class="mode-switch" id="highContrastMode">High Contrast Mode</button>
+    <button class="mode-switch" id="macosMode">macOS 10.6 Mode</button>
+    <button class="mode-switch" id="neonMode">Neon Mode</button>
+    <button onclick="document.getElementById('hello-text').style.color = 'black'">Make Text Black</button>
+    <button onclick="window.location.href='https://mail.google.com'">Go to Gmail</button>
+   <button onclick="window.location.href='https://chat.google.com'">Go to google chat</button>
+   <button onclick="window.location.href='https://voice.google.com'">Go to google voice</button> 
+   <button onclick="window.location.href='https://apple.com'">Go to Apple.com</button>
+   <button onclick="window.location.href='https://classic.minecraft.net'">Play Minecraft!</button>
+   <button onclick="window.location.href='https://isle.pizza'">Play Lego Island!!</button>
+   <button onclick="window.open('https://www.apple.com/shop/buy-iphone', '_blank')">Buy iPhone 16e</button>
+   <button onclick="window.open('https://en.wikipedia.org/wiki/MacBook_Pro', '_blank')">Go to MacBook Pro Wikipedia</button>
+   <button onclick="window.open('https://youtube.com/@the_computer_guy_official?si=KVNl7a3Pn_Z6Iziz', '_blank')">SUBSCRIBE TO MY YOUTUBE CHANNEL!!!</button>
+   <button onclick="window.location.href='http://localhost:3000/files.html'">Go to File Browser</button>
+   <button onclick="window.open('https://archive.org/download/WinXPProSP3x86/en_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-73974.iso', '_blank')">Get Windows XP Pro SP3</button>
+    <form action="https://www.google.com/search" method="GET" target="_blank" style="margin-top: 10px;">
+        <input type="text" name="q" placeholder="Search Google" style="padding: 5px;">
+        <button type="submit">Search</button>
+    </form>
+    <iframe src="https://en.wikipedia.org" width="400" height="300" style="margin-top: 15px; border: 1px solid #ccc;"></iframe>
+    <iframe src="https://copy.sh/v86" width="400" height="300" style="margin-top: 15px; border: 1px solid #ccc;"></iframe>
+    <h2 class="subtitle" id="hello-text">Version 1.2</h2>
+    <script>
+        const modeSwitch = document.getElementById('modeSwitch');
+        const superDarkMode = document.getElementById('superDarkMode');
+        const highContrastMode = document.getElementById('highContrastMode');
+        const macosMode = document.getElementById('macosMode');
+        const neonMode = document.getElementById('neonMode');
+        let darkMode = true;
+        modeSwitch.addEventListener('click', function() {
+            darkMode = !darkMode;
+            if (darkMode) {
+                document.documentElement.style.setProperty('--main-bg', 'black');
+                document.documentElement.style.setProperty('--main-color', 'rgb(255, 0, 0)');
+                document.documentElement.style.setProperty('--button-bg', 'rgba(255,255,255,0.1)');
+                document.documentElement.style.setProperty('--button-color', '#fff');
+                document.body.style.backgroundImage = "url('1lu31x1angtb1.jpg')";
+                modeSwitch.textContent = 'Switch to Light Mode';
+            } else {
+                document.documentElement.style.setProperty('--main-bg', '#f5f5f5');
+                document.documentElement.style.setProperty('--main-color', '#222');
+                document.documentElement.style.setProperty('--button-bg', 'rgba(0,0,0,0.1)');
+                document.documentElement.style.setProperty('--button-color', '#222');
+                document.body.style.backgroundImage = "url('10-2--thumb.png')";
+                modeSwitch.textContent = 'Switch to Standard Mode';
+            }
+        });
+        superDarkMode.addEventListener('click', function() {
+            document.documentElement.style.setProperty('--main-bg', '#000');
+            document.documentElement.style.setProperty('--main-color', '#00FF00');
+            document.documentElement.style.setProperty('--button-bg', '#111');
+            document.documentElement.style.setProperty('--button-color', '#00FF00');
+            document.body.style.backgroundImage = "url('24q0cte2toq91.png')";
+            modeSwitch.textContent = 'Switch to Light Mode';
+        });
+        highContrastMode.addEventListener('click', function() {
+            document.documentElement.style.setProperty('--main-bg', '#000');
+            document.documentElement.style.setProperty('--main-color', '#00FFFF');
+            document.documentElement.style.setProperty('--button-bg', '#002244');
+            document.documentElement.style.setProperty('--button-color', '#00FFFF');
+            document.body.style.backgroundImage = 'none';
+            modeSwitch.textContent = 'Switch to Light Mode';
+        });
+        macosMode.addEventListener('click', function() {
+            document.documentElement.style.setProperty('--main-bg', 'linear-gradient(135deg, #e8eaed 0%, #cfd8df 100%)');
+            document.documentElement.style.setProperty('--main-color', '#007aff');
+            document.documentElement.style.setProperty('--button-bg', 'rgba(0,122,255,0.15)');
+            document.documentElement.style.setProperty('--button-color', '#007aff');
+            document.body.style.backgroundImage = "url('10-6--thumb.png')";
+            document.body.style.fontFamily = 'San Francisco, Arial, Helvetica, sans-serif';
+            modeSwitch.textContent = 'Switch to Standard Mode';
+        });
+        neonMode.addEventListener('click', function() {
+            document.documentElement.style.setProperty('--main-bg', '#111');
+            document.documentElement.style.setProperty('--main-color', '#39ff14');
+            document.documentElement.style.setProperty('--button-bg', 'linear-gradient(90deg, #ff00cc 0%, #333399 100%)');
+            document.documentElement.style.setProperty('--button-color', '#00fff7');
+            document.body.style.backgroundImage = 'linear-gradient(135deg, #0f2027 0%, #2c5364 100%)';
+            document.body.style.fontFamily = 'Orbitron, Arial, Helvetica, sans-serif';
+            document.getElementById('hello-text').style.textShadow = '0 0 10px #39ff14, 0 0 20px #39ff14';
+            let neonButtons = document.querySelectorAll('.mode-switch, button');
+            neonButtons.forEach(btn => {
+                btn.style.boxShadow = '0 0 10px #ff00cc, 0 0 20px #00fff7';
+                btn.style.textShadow = '0 0 5px #00fff7, 0 0 10px #ff00cc';
+            });
+            modeSwitch.textContent = 'Switch to Standard Mode';
+        });
+    </script>
+</body>
+</html>
