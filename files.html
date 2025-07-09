@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Browser</title>
+    <style>
+        body {
+            background: #181c20;
+            color: #f3f3f3;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #23272b;
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+            padding: 32px 24px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 24px;
+            color: #4fc3f7;
+        }
+        ul.file-list {
+            list-style: none;
+            padding: 0;
+        }
+        ul.file-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        ul.file-list li:last-child {
+            border-bottom: none;
+        }
+        .icon {
+            font-size: 1.3em;
+            margin-right: 12px;
+        }
+        a {
+            color: #90caf9;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>File Browser</h1>
+        <ul class="file-list" id="fileList">
+            <li>Loading...</li>
+        </ul>
+    </div>
+    <script>
+    fetch('/api/files')
+      .then(res => res.json())
+      .then(files => {
+        const fileList = document.getElementById('fileList');
+        fileList.innerHTML = '';
+        files.forEach(file => {
+          const li = document.createElement('li');
+          const icon = document.createElement('span');
+          icon.className = 'icon';
+          icon.textContent = file.isDirectory ? '📁' : (file.name.match(/\.(jpg|jpeg|png|gif)$/i) ? '🖼️' : '📄');
+          const link = document.createElement('a');
+          link.href = file.name;
+          link.textContent = file.name;
+          if (file.isDirectory) link.href = '#';
+          li.appendChild(icon);
+          li.appendChild(link);
+          fileList.appendChild(li);
+        });
+      })
+      .catch(() => {
+        document.getElementById('fileList').innerHTML = '<li>Failed to load files.</li>';
+      });
+    </script>
+</body>
+</html>
